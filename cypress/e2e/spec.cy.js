@@ -24,4 +24,11 @@ describe('url shortener', () => {
     cy.get('div[id="3"]').should('contain', 'http://localhost:3001/useshorturl/3')
   })
 
+  it('Should display an error message when server is down', () => {
+
+    cy.intercept('GET', 'http://localhost:3001/api/v1/urls', { forceNetworkError: true })
+    cy.visit('http://localhost:3000/')
+    cy.get('h2').should('contain', 'Failed to fetch. Issue with server. Please try again')
+  })
+
 })
