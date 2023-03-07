@@ -4,13 +4,13 @@
       "long_url": "cheese",
       "title": "abcd",
       "id": 1,
-      "short_url": "http://localhost:3001/useshorturl/2"
+      "short_url": "http://localhost:3001/useshorturl/1"
     },
     {
-      "long_url": "keenan",
+      "long_url": "southall",
       "title": "keenan",
       "id": 2,
-      "short_url": "http://localhost:3001/useshorturl/3"
+      "short_url": "http://localhost:3001/useshorturl/2"
     }
   ]
 }
