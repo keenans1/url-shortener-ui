@@ -13,6 +13,8 @@ export class App extends Component {
   }
 
   componentDidMount() {
+    getUrls()
+      .then(data => this.setState({ urls: data.urls }))
   }
 
   render() {
@@ -23,7 +25,7 @@ export class App extends Component {
           <UrlForm />
         </header>
 
-        <UrlContainer urls={this.state.urls}/>
+        <UrlContainer urls={this.state.urls} />
       </main>
     );
   }
