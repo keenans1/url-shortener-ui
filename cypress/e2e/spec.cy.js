@@ -8,6 +8,8 @@ describe('url shortener', () => {
 
   it('Should show the website title and existing urls', () => {
     cy.get('h1').should('contain', 'URL Shortener')
+    cy.get('div[id="1"]').should('contain', 'abcd')
+    cy.get('div[id="2"]').should('contain', 'keenan')
   })
 
 })
