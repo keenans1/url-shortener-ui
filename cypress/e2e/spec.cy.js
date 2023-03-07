@@ -33,4 +33,6 @@ describe('url shortener', () => {
     cy.get('section').children().should('have.length', 2)
   })
 
+  //didnt have enough time to test user delete flows
+
 })
