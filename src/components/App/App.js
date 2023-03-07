@@ -40,6 +40,26 @@ export class App extends Component {
       .catch(err => this.setState({ errorMessage: err.message }))
   }
 
+  removeUrl = (deletedUrlId) => {
+    fetch(`http://localhost:3001/api/v1/urls/${deletedUrlId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Something went wrong')
+        } else if (response.status === 204) {
+          const keptUrls = this.state.urls.filter(url => url.id !== deletedUrlId)
+          this.setState({ urls: keptUrls })
+        }
+
+      })
+      .catch(err => this.setState({ errorMessage: err.message }))
+  }
+
+
 
   render() {
     if (this.state.errorMessage) {
@@ -59,7 +79,7 @@ export class App extends Component {
             <h1>URL Shortener</h1>
             <UrlForm addUrl={this.addUrl} />
           </header>
-          <UrlContainer urls={this.state.urls} />
+          <UrlContainer urls={this.state.urls} removeUrl={this.removeUrl} />
         </main>
       )
     }
